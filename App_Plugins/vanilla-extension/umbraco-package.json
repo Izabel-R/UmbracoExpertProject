@@ -1,0 +1,25 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "name": "Vanilla.Extension",
+  "version": "0.1.0",
+  "extensions": [
+    {
+      "type": "dashboard",
+      "alias": "vanilla.extension",
+      "name": "Vanilla Content Utilities",
+      "element": "/App_Plugins/vanilla-extension/vanilla-extension.js",
+      "weight": 10,
+      "meta": {
+        "label": "Vanilla Content Utilities",
+        "pathname": "vanilla-extension",
+        "icon": "icon-newspaper"
+      },
+      "conditions": [
+        {
+          "alias": "Umb.Condition.SectionAlias",
+          "match": "Umb.Section.Content"
+        }
+      ]
+    }
+  ]
+}
