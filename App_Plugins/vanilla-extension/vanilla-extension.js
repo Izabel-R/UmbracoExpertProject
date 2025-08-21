@@ -10,6 +10,16 @@ template.innerHTML = `
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: #111827;
     }
+    .grid-2 {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr; /* 1 column by default */
+    }
+    @media (min-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr; /* 2 columns on wider screens */
+      }
+    }
     h2 { margin: 0 0 8px; }
     section { border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; margin: 16px 0; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
     section h3 { margin: 0 0 8px; font-size: 16px; }
@@ -29,54 +39,57 @@ template.innerHTML = `
 
   <uui-box>
     <h2>Vanilla Content Utilities</h2>
-    <section>
-      <h3>Slug Generator</h3>
-      <input id="slug-src" type="text" placeholder="Type a title…" />
-      <button id="btn-slug">Slugify</button>
-      <button id="btn-slug-copy">Copy</button>
-      <div>Slug: <span id="slug-out">—</span></div>
-    </section>
+    <div class="grid-2">
+        <section>
+          <h3>Slug Generator</h3>
+          <input id="slug-src" type="text" placeholder="Type a title…" />
+          <button id="btn-slug">Slugify</button>
+          <button id="btn-slug-copy">Copy</button>
+          <div>Slug: <span id="slug-out">—</span></div>
+        </section>
 
-    <section>
-      <h3>Title Checker + SERP Preview</h3>
-      <input id="title-src" type="text" placeholder="Title tag (30–60 chars)" />
-      <div><span id="title-len" class="pill">0 chars</span> <span id="title-status" class="pill">—</span></div>
-      <div class="serp">
-        <div class="t" id="serp-title">Your title preview</div>
-        <div class="u" id="serp-url">site.com/example</div>
-        <div class="d" id="serp-desc">Meta description preview goes here.</div>
-      </div>
-    </section>
+        <section>
+          <h3>Title Checker + Search Engine Results Page</h3>
+          <input id="title-src" type="text" placeholder="Title tag (30–60 chars)" />
+          <div><span id="title-len" class="pill">0 chars</span> <span id="title-status" class="pill">—</span></div>
+          <div class="serp">
+            <div class="t" id="serp-title">Your title preview</div>
+            <div class="u" id="serp-url">site.com/example</div>
+            <div class="d" id="serp-desc">Meta description preview goes here.</div>
+          </div>
+        </section>
 
-    <section>
-      <h3>Meta Description Helper</h3>
-      <textarea id="desc-src" rows="3" placeholder="Meta description (~150–160 chars)…"></textarea>
-      <div><span id="desc-len" class="pill">0 chars</span> <span id="desc-status" class="pill">—</span></div>
-      <button id="btn-desc-copy">Copy</button>
-    </section>
+        <section>
+          <h3>Meta Description Helper</h3>
+          <textarea id="desc-src" rows="3" placeholder="Meta description (~150–160 chars)…"></textarea>
+          <div><span id="desc-len" class="pill">0 chars</span> <span id="desc-status" class="pill">—</span></div>
+          <button id="btn-desc-copy">Copy</button>
+        </section>
 
-    <section>
-      <h3>UTM Builder</h3>
-      <input id="utm-base" type="url" placeholder="Base URL" />
-      <input id="utm-source" type="text" placeholder="utm_source" />
-      <input id="utm-medium" type="text" placeholder="utm_medium" />
-      <input id="utm-campaign" type="text" placeholder="utm_campaign" />
-      <input id="utm-term" type="text" placeholder="utm_term" />
-      <input id="utm-content" type="text" placeholder="utm_content" />
-      <button class="primary" id="btn-utm-build">Build URL</button>
-      <button class="ghost" id="btn-utm-copy">Copy</button>
-      <div>Result: <span id="utm-out">—</span></div>
-    </section>
+        <section>
+          <h3>Text Cleanup</h3>
+          <textarea id="clean-src" rows="3" placeholder="Paste text to sanitize…"></textarea>
+          <button data-clean="quotes">Straighten quotes</button>
+          <button data-clean="emoji">Strip emoji</button>
+          <button data-clean="spaces">Collapse spaces</button>
+          <button class="ghost" id="btn-clean-copy">Copy</button>
+          <div>Output: <span id="clean-out">—</span></div>
+        </section>
 
-    <section>
-      <h3>Text Cleanup</h3>
-      <textarea id="clean-src" rows="3" placeholder="Paste text to sanitize…"></textarea>
-      <button data-clean="quotes">Straighten quotes</button>
-      <button data-clean="emoji">Strip emoji</button>
-      <button data-clean="spaces">Collapse spaces</button>
-      <button class="ghost" id="btn-clean-copy">Copy</button>
-      <div>Output: <span id="clean-out">—</span></div>
-    </section>
+        <section>
+          <h3>Urchin Tracking Module Builder</h3>
+          <input id="utm-base" type="url" placeholder="Base URL" />
+          <input id="utm-source" type="text" placeholder="utm_source" />
+          <input id="utm-medium" type="text" placeholder="utm_medium" />
+          <input id="utm-campaign" type="text" placeholder="utm_campaign" />
+          <input id="utm-term" type="text" placeholder="utm_term" />
+          <input id="utm-content" type="text" placeholder="utm_content" />
+          <button class="primary" id="btn-utm-build">Build URL</button>
+          <button class="ghost" id="btn-utm-copy">Copy</button>
+          <div>Result: <span id="utm-out">—</span></div>
+        </section>
+
+    </div>
   </uui-box>
   <div class="vu-writeup" style="margin-top:24px">
     <details class="vu-details" open>
@@ -87,10 +100,10 @@ template.innerHTML = `
             <h3>How I Used Vanilla in This Project</h3>
             <ul>
                 <li><strong>Slug Generator:</strong> normalization (NFD) + regex for clean, URL‑safe slugs.</li>
-                <li><strong>SERP Preview:</strong> dynamic length feedback and preview of titles/descriptions.</li>
+                <li><strong>Search Engine Results Page Preview:</strong> dynamic length feedback and preview of titles/descriptions.</li>
                 <li><strong>Meta Helper:</strong> live character guidance for editor friendliness.</li>
-                <li><strong>UTM Builder:</strong> URL API for safe parameter assembly.</li>
                 <li><strong>Text Cleanup:</strong> quote straightening, emoji stripping, whitespace normalization.</li>
+                <li><strong>Urchin Tracking Module Builder:</strong> URL API for safe parameter assembly.</li>
             </ul>
             <h3>How to Use the Tools</h3>
             <ol>
