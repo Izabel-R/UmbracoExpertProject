@@ -1,0 +1,23 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "name": "My.Extension",
+  "extensions": [
+    {
+      "type": "dashboard",
+      "alias": "vite-insights",
+      "name": "Viteinsights",
+      "element": "/App_Plugins/vite-extension/dist/vite-insights.js",
+      "weight": 10,
+      "meta": {
+        "label": "Vite Insights",
+        "pathname": "vite-extension"
+      },
+      "conditions": [
+        {
+          "alias": "Umb.Condition.SectionAlias",
+          "match": "Umb.Section.Content"
+        }
+      ]
+    }
+  ]
+}
