@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -6,24 +6,25 @@
     <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="app_plugins\vite-extension\dist\**" />
-    <Compile Remove="app_plugins\vite-extension\node_modules\**" />
-    <Content Remove="app_plugins\vite-extension\dist\**" />
-    <Content Remove="app_plugins\vite-extension\node_modules\**" />
-    <EmbeddedResource Remove="app_plugins\vite-extension\dist\**" />
-    <EmbeddedResource Remove="app_plugins\vite-extension\node_modules\**" />
-    <None Remove="app_plugins\vite-extension\dist\**" />
-    <None Remove="app_plugins\vite-extension\node_modules\**" />
-    <TypeScriptCompile Remove="app_plugins\vite-extension\dist\**" />
-    <TypeScriptCompile Remove="app_plugins\vite-extension\node_modules\**" />
+    <TypeScriptCompile Remove="App_Plugins\vite-extension\node_modules\**" />
+    <TypeScriptCompile Remove="App_Plugins\vite-extension\src\components\**" />
+    <TypeScriptCompile Remove="App_Plugins\vite-extension\src\utils\**" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Remove="App_Plugins\vite-extension\src\vite-env.d.ts" />
+    <TypeScriptCompile Remove="App_Plugins\vite-extension\src\vite-insights.ts" />
     <TypeScriptCompile Remove="App_Plugins\vite-extension\vite.config.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_plugins\vanilla-extension\umbraco-package.json" />
-    <Content Include="app_plugins\vite-extension\src\index.css" />
-    <Content Include="app_plugins\vite-extension\umbraco-package.json" />
+    <Content Include="App_Plugins\vanilla-extension\vanilla.jpg" />
+    <Content Include="App_Plugins\vite-extension\index.html" />
+    <Content Include="App_Plugins\vite-extension\package-lock.json" />
+    <Content Include="App_Plugins\vite-extension\package.json" />
+    <Content Include="app_plugins\vite-extension\public\umbraco-package.json" />
+    <Content Include="App_Plugins\vite-extension\src\index.css" />
+    <Content Include="App_Plugins\vite-extension\tsconfig.json" />
+    <Content Include="App_Plugins\vite-extension\umbraco-package.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,12 +43,10 @@
 
   <ItemGroup>
     <None Include="App_Plugins\vanilla-extension\vanilla-extension.js" />
-    <None Include="app_plugins\vite-extension\public\vite.svg" />
-    <None Include="app_plugins\vite-extension\src\assets\lit.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="app_plugins\vite-extension\src\vite-env.d.ts" />
+    <None Include="App_Plugins\vite-extension\.gitignore" />
+    <None Include="App_Plugins\vite-extension\src\assets\vite.svg" />
+    <None Include="App_Plugins\vite-extension\src\assets\lit.svg" />
+    <None Include="App_Plugins\vite-extension\src\assets\ts.svg" />
   </ItemGroup>
 
   <PropertyGroup>

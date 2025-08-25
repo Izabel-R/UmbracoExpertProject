@@ -1,20 +1,18 @@
 import { defineConfig } from "vite";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
     build: {
         lib: {
-            entry: "src/vite-extension.ts", // your web component source file
+            entry: "src/vite-insights.ts", // your web component source file
             formats: ["es"],
-            fileName: () => "vite-dashboard.js",
+            fileName: "vite-insights"
         },
-        outDir: "dist",
+        outDir: "dist", // all compiled files will be placed here
+        emptyOutDir: true,
         sourcemap: true,
         rollupOptions: {
-            external: [/^@umbraco-cms\//], // keep Umbraco/Lit externals out of your bundle
+            external: [/^@umbraco/], // ignore the Umbraco Backoffice package in the build
         },
     },
-    define: {
-        __APP_BUILD_TIME__: JSON.stringify(new Date().toISOString()),
-        __APP_MODE__: JSON.stringify(mode),
-    },
-}));
+    base: "/App_Plugins/vite-extension/", // the base path of the app in the browser (used for assets)
+});

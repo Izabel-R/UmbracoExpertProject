@@ -4,13 +4,13 @@
   "extensions": [
     {
       "type": "dashboard",
-      "alias": "vite-extension",
-      "name": "Vite Insights",
-      "element": "/App_Plugins/vite-extension/dist/vite-dashboard.js",
+      "alias": "vite-insights",
+      "name": "Viteinsights",
+      "element": "/App_Plugins/vite-extension/dist/vite-insights.js",
       "weight": 10,
       "meta": {
         "label": "Vite Insights",
-        "pathname": "vite-dashboard"
+        "pathname": "vite-extension"
       },
       "conditions": [
         {

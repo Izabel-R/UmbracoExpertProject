@@ -1,0 +1,18 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "name": "Vite Insights",
+  "version": "0.1.0",
+  "extensions": [
+    {
+      "type": "dashboard",
+      "alias": "My.Dashboard.MyExtension",
+      "name": "Vite Insights",
+      "element": "/App_Plugins/vite-extension/vite-extension.js",
+      "elementName": "my-element",
+      "meta": {
+        "label": "Vite Insights",
+        "pathname": "vite-extension"
+      }
+    }
+  ]
+}
