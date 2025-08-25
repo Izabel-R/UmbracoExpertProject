@@ -6,11 +6,11 @@
     {
       "type": "dashboard",
       "alias": "vanilla.extension",
-      "name": "Vanilla Content Utilities",
+      "name": "Vanilla Utilities",
       "element": "/App_Plugins/vanilla-extension/vanilla-extension.js",
       "weight": 10,
       "meta": {
-        "label": "Vanilla Content Utilities",
+        "label": "Vanilla Utilities",
         "pathname": "vanilla-extension",
         "icon": "icon-newspaper"
       },
