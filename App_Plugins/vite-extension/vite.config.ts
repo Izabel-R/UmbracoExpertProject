@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
     build: {
         lib: {
-            entry: "src/vite-insights.ts", // your web component source file
+            entry: ["src/vite-insights.ts", "src/icons-dictionary.ts", "src/propertyeditor.ts", "src/advancedpropertyeditor.ts"], // your web component source file
             formats: ["es"],
             fileName: "vite-insights"
         },
